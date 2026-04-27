@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 1. 設定容器寬度與置中，方便觀察 */
+        .container { width: 450px; margin: 20px auto; }
+
+        /* 2. 讓按鈕區塊靠右 */
+        .button-wrapper { text-align: right; margin-bottom: 10px; }
+
+        /* 3. 按鈕核心規格 (h22 / R8 / 1px #2f2f2f) */
+        .spec-button {
+            height: 22px;
+            border-radius: 8px;
+            border: 1px solid #2f2f2f;
+            background: #ffffff;
+            font-size: 13px;
+            cursor: pointer;
+            padding: 0 12px;
+        }
+
+        /* 4. 圖片區域 */
+        .img-box img { width: 450px; height: 240px; display: block; }
+
+        /* 5. 資訊區域 (預設隱藏) */
+        #info { display: none; margin-top: 10px; font-size: 13px; }
+        .row { background: #f6f6f6; padding: 6px; margin-bottom: 2px; }
+        .blue { color: #0084ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="button-wrapper">
+        <button class="spec-button" onclick="toggle()">查看資訊</button>
+    </div>
+
+    <div class="img-box">
+        <img src="https://picsum.photos/450/240?random=1">
+    </div>
+
+    <div id="info">
+        <div class="row">修改日期：2017/10/12</div>
+        <div class="row">類別：JPG</div>
+        <div class="row">大小：<span class="blue">466.97KB</span></div>
+        <div class="row">路徑：\\designcenter.qnap.com.tw\...</div>
+    </div>
+</div>
+
+<script>
+    function toggle() {
+        var x = document.getElementById("info");
+        var btn = document.querySelector(".spec-button");
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+            btn.innerText = "收起資訊";
+        } else {
+            x.style.display = "none";
+            btn.innerText = "查看資訊";
+        }
+    }
+</script>
+
+</body>
+</html>
